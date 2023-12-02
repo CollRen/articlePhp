@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "commandCenter.border": "#e7e7e799",
+        "titleBar.activeBackground": "#e63700",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#e6370099",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#e63700"
+}
