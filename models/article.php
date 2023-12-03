@@ -8,7 +8,16 @@
 function articleSelect()
 {
     require(CONNEX_DIR);
-    $sql = "SELECT * FROM article inner join utilisateur on id_utilisateur = auteur  ORDER BY titre";
+    $sql = "SELECT * FROM article inner join utilisateur on id_utilisateur = auteur ORDER BY titre";
+    $result = mysqli_query($connex, $sql);
+    $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $result;
+}
+
+function articleSelectByAuthor()
+{
+    require(CONNEX_DIR);
+    $sql = "SELECT * FROM article inner join utilisateur on id_utilisateur = auteur  WHERE auteur = $_SESSION[auteur] ORDER BY titre";
     $result = mysqli_query($connex, $sql);
     $result = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $result;

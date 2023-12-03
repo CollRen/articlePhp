@@ -1,13 +1,6 @@
 <?php
 
-function loginCheck()
-{
-    if (!sessionCheck()) {
-        return false;
-    } else {
-        return true;
-    }
-}
+
 
 /**
  * Fonction qui envoie à la view utilisateur/login
@@ -28,7 +21,7 @@ function store($request)
 function auth()
 {
 
-    require_once(MODEL_DIR . "/login.php");
+    require(MODEL_DIR . "/login.php");
     $mot_de_passe = $_POST["mot_de_passe"];
     $info_user = utilisateurPswCheck($_POST);
     $salt = "H@%h14";
@@ -36,11 +29,7 @@ function auth()
     $mot_de_passe = password_hash($saltPassword, PASSWORD_BCRYPT, ['cost' => 10]);
     if (password_verify($saltPassword, $info_user[0]['mot_de_passe'])) {
 
-        session_regenerate_id();
-        $_SESSION['id'] = $info_user[0]['id_utilisateur'];
-        $_SESSION['nom'] = $info_user[0]['nom'];
-        $_SESSION['auteur'] = $info_user[0]['id_utilisateur'];
-        $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+        regenereIdSession($info_user);
 
         require_once(MODEL_DIR . "/article.php");
         $article = articleSelect();

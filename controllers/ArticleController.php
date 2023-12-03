@@ -8,7 +8,7 @@
 function index()
 {
    require_once(MODEL_DIR . "/article.php");
-   $data = articleSelect();
+   $data = articleSelectByAuthor();
 
    render('/article/index.php', $data);
 }
