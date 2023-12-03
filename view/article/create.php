@@ -1,17 +1,15 @@
+<?php $today = date("Y-m-d");  ?>
+<h1>Publier votre article en date d'aujourd'hui</h1>
 <form action="index.php?controller=article&function=store" method="post">
-    <h1>Créer votre article</h1>
+
     <label> Titre :
         <input name="titre" type="text" required>
     </label>
     <label> Taper votre texte ici :
         <textarea name="contenu" id="" cols="30" rows="10" required></textarea>
     </label>
-    <label> Date de publication :
-        <input name="date" type="date" required>
-    </label>
-    <label> Auteur :
+    <input name="date" type="hidden" value="<?php echo $today ?>">
+    <input name="auteur" type="hidden" readonly value=<?php echo $_SESSION['auteur']; ?>>
 
-        <input name="auteur" type="text" readonly value=<?php echo $_SESSION['auteur']; ?>>
-    </label>
-    <input type="submit" value="Sauvegarder l'article">
+    <input type="submit" value="Publier l'article">
 </form>

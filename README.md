@@ -38,3 +38,11 @@ Lister ce que je veux que le site fasse
 #### Layouts.php
 
 - Faire une loop pour créer le menu selon l'état de la connexion
+
+#### Créer votre article
+
+- Date de publication se fera tout seul: today()PHP
+- Enlever le champ auteur de la vue.
+- Publier l'article au lieu de sauvegarder l'article
+- Enlever l'id de l'auteur dans la liste des articles disponibles
+- Change le h1 pour Vos articles
