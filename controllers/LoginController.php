@@ -39,6 +39,7 @@ function auth()
         session_regenerate_id();
         $_SESSION['id'] = $info_user[0]['id_utilisateur'];
         $_SESSION['nom'] = $info_user[0]['nom'];
+        $_SESSION['auteur'] = $info_user[0]['id_utilisateur'];
         $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
 
         require_once(MODEL_DIR . "/article.php");
@@ -49,4 +50,12 @@ function auth()
         require_once(MODEL_DIR . "/login.php");
         header('location:login.php?msg=2');
     }
+}
+
+function logout()
+{
+    session_start();
+    session_destroy();
+
+    header('location:index.php');
 }

@@ -28,7 +28,7 @@ function articleInsert($request)
         $$key = mysqli_real_escape_string($connex, $value);
     }
 
-    $sql = "INSERT INTO article (titre, contenu, date, auteur) VALUES ('$titre', '$contenu', '$date', 1)";
+    $sql = "INSERT INTO article (titre, contenu, date, auteur) VALUES ('$titre', '$contenu', '$date', $auteur)";
 
     if (mysqli_query($connex, $sql)) {
         return mysqli_insert_id($connex);
@@ -90,8 +90,7 @@ function articleEdit($request)
  */
 function articleDelete($request)
 {
-    //print_r($request);
-    print_r($_REQUEST);
+
     require(CONNEX_DIR);
     foreach ($request as $key => $value) {
         $$key = mysqli_real_escape_string($connex, $value);

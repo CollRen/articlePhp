@@ -10,8 +10,8 @@
         <input name="date" type="date" required>
     </label>
     <label> Auteur :
-        <!-- Insérer ici l'auteur connecté -->
-        <input name="auteur" type="text" readonly value='Auteur connecté '>
+
+        <input name="auteur" type="text" readonly value=<?php echo $_SESSION['auteur']; ?>>
     </label>
     <input type="submit" value="Sauvegarder l'article">
 </form>
