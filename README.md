@@ -38,3 +38,9 @@ Puis par exemple: dans le formulaire fontion forumCreate (
 - Changer le SQL en conséquence: 65 ou 25 VARCHAR
 
 - Publié sur GitHub publique
+
+- Envoyer l'utilisateur fraichement créer vers la page de création d'article
+
+Lister ce que je veux que le site fasse
+
+- Lien déconnexion

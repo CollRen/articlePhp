@@ -22,10 +22,9 @@ function create()
 
 function store($request)
 {
-   //print_r($request);
    require_once(MODEL_DIR . "/utilisateur.php");
-   $insert = utilisateurInsert($request);
-   echo $insert;
+   $request['id_utilisateur'] = utilisateurInsert($request);
+   render('/utilisateur/show.php', $request);
 }
 
 function view($request)

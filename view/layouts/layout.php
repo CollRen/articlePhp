@@ -12,7 +12,7 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <!--<li><a href="index.php?controller=utilisateur">utilisateur</a></li>-->
+            <li><a href="index.php?controller=utilisateur">utilisateur</a></li>
             <li><a href="index.php?controller=article">article</a></li>
             <li><a href="index.php?controller=article&function=create">Ajouter article</a></li>
             <li><a href="index.php?controller=utilisateur&function=create">Créer votre compte</a></li>

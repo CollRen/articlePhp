@@ -20,4 +20,3 @@
     <input type="hidden" name="id_article" value="<?= $data['id_article']; ?>">
     <input type="submit" class="btn-danger" value="Effacer">
 </form>
-</form>

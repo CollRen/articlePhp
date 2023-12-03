@@ -13,13 +13,7 @@
     <label> Mot de passe
         <input name="mot_de_passe" type="text">
     </label>
-    <label> article :
-        <select name="article_id">
-            <option value="">Selectionner un article</option>
-            <?php foreach ($data as $article) { ?>
-                <option value="<?= $article['id_article']; ?>"><?= $article['titre']; ?></option>
-            <?php } ?>
-        </select>
+
     </label>
     <input type="submit" value="Save">
 </form>
