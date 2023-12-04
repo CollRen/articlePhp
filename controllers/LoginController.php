@@ -24,8 +24,11 @@ function auth()
     require(MODEL_DIR . "/login.php");
     $mot_de_passe = $_POST["mot_de_passe"];
     $info_user = utilisateurPswCheck($_POST);
-    $salt = "H@%h14";
-    $saltPassword = $mot_de_passe . $salt;
+    // $salt = "H@%h14";
+    // $saltPassword = $mot_de_passe . $salt;
+    require_once('lib/core.php');
+    $saltPassword = salt($mot_de_passe);
+
     $mot_de_passe = password_hash($saltPassword, PASSWORD_BCRYPT, ['cost' => 10]);
     if (password_verify($saltPassword, $info_user[0]['mot_de_passe'])) {
 

@@ -25,3 +25,10 @@ function infNoRenderAffMenu()
     $layout_file = VIEW_DIR . '/layouts/layout.php';
     include_once($layout_file);
 }
+
+function salt($sale)
+{
+    $salt = "H@%h14";
+    $sale = $sale . $salt;
+    return $sale;
+}
