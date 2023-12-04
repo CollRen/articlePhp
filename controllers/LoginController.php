@@ -8,6 +8,7 @@
  */
 function index()
 {
+    require_once(MODEL_DIR . "/login.php");
     render('/login/index.php');
 }
 

@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Fonction qui va chercher le mdp de l'utilisateur dans la base de donnée.
  * @param array $request Le $_POST du formulaire de login.
@@ -27,4 +28,10 @@ function regenereIdSession($info_user)
     $_SESSION['nom'] = $info_user[0]['nom'];
     $_SESSION['auteur'] = $info_user[0]['id_utilisateur'];
     $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+}
+
+function goLogin()
+{
+    require_once(MODEL_DIR . "/login.php");
+    render('/login/index.php');
 }

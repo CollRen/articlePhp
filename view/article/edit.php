@@ -8,8 +8,8 @@
     </label>
     <input name="auteur" type="hidden" value='<?= $data['auteur']; ?>'>
 
-    <label for="date">Date
-        <input name="date" type="date" value='<?= $data['date']; ?>'>
+    <label for="date">Date de la publication originale:
+        <input name="date" type="date" value='<?= $data['date']; ?>' readonly>
     </label>
 
     <!--<input name="auteur" type="hidden" value=' //$data['auteur']; '-->

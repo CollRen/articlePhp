@@ -8,8 +8,7 @@
 function index()
 {
    require_once(MODEL_DIR . "/utilisateur.php");
-   $data = utilisateurSelect(); // Requête SQL
-   // print_r($data);
+   $data = utilisateurSelect();
    render('/utilisateur/index.php', $data);
 }
 
@@ -30,8 +29,6 @@ function store($request)
 function view($request)
 {
    require_once(MODEL_DIR . "/utilisateur.php");
-   //print_r($request);
    $utilisateur = utilisateurSelectId($request);
-   //print_r($utilisateur);
    render('/utilisateur/show.php', $utilisateur);
 }

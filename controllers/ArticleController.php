@@ -1,12 +1,19 @@
 <?php
 
 /**
+ * @function index()
  * fonction qui injecte le résultat d'une fonction contenant une requête SQL
  * @var mixed $data résultat d'une fonction contenant une requête SQL
- * @render insert dans $content la page traitant la requête SQL et affiche layout.php
+ * @return render insert dans le $content la page traitant la requête SQL et affiche layout.php
  */
 function index()
 {
+   require_once(SESSION_DIR);
+   if (!sessionCheck()) {
+      require_once(MODEL_DIR . "/login.php");
+      render('/login/index.php');
+      exit;
+   }
    require_once(MODEL_DIR . "/article.php");
    $data = articleSelectByAuthor();
 
@@ -16,14 +23,14 @@ function index()
 function create()
 {
    require_once(SESSION_DIR);
-   if (sessionCheck()) {
-      require_once(MODEL_DIR . "/article.php");
-      $data = articleSelect();
-      render('/article/create.php', $data);
-   } else {
+   if (!sessionCheck()) {
       require_once(MODEL_DIR . "/login.php");
       render('/login/index.php');
+      exit;
    }
+   require_once(MODEL_DIR . "/article.php");
+   $data = articleSelect();
+   render('/article/create.php', $data);
 }
 
 function store($request)
@@ -69,15 +76,14 @@ function update($request)
 
 function preUpdate($request)
 {
-
    require_once(SESSION_DIR);
-   if (sessionCheck()) {
-      require_once(MODEL_DIR . "/article.php");
-      render('/article/edit.php', $request);
-   } else {
+   if (!sessionCheck()) {
       require_once(MODEL_DIR . "/login.php");
-      render('/login/index.php', $request);
+      render('/login/index.php');
+      exit;
    }
+   require_once(MODEL_DIR . "/article.php");
+   render('/article/edit.php', $request);
 }
 function deleteArticle($request)
 {
