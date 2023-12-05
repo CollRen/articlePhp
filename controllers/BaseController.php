@@ -1,9 +1,9 @@
 <?php
-function index()
+function index($article = NULL)
 {
+    //print_r($article);
     require_once(MODEL_DIR . "/article.php");
     $article = articleSelect();
-    //print_r($article);
     //die();
     render('/base/index.php', $article);
 }

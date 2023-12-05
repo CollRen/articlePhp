@@ -20,7 +20,6 @@ function store($request)
 }
 function auth()
 {
-
     require(MODEL_DIR . "/login.php");
     $mot_de_passe = $_POST["mot_de_passe"];
     $info_user = utilisateurPswCheck($_POST);
@@ -38,8 +37,6 @@ function auth()
         $article = articleSelect();
         render('/base/index.php', $article);
     } else {
-
-        require_once(MODEL_DIR . "/login.php");
         header('location:login.php?msg=2');
     }
 }

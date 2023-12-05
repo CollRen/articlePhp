@@ -13,8 +13,9 @@
         <ul>
             <li><a href="index.php">Accueil</a></li>
             <li><a href="index.php?controller=utilisateur">Utilisateur</a></li>
+            <li><a href="index.php?controller=article">Vos articles</a></li>
+            <li><a href="index.php?controller=article&function=create">Ajouter article</a></li>
             <li><a href="index.php?controller=utilisateur&function=create">Créer votre compte</a></li>
-            <li><a href="index.php?controller=login">Connexion</a></li>
             <li><a href="index.php?controller=login&function=logout">Déconnexion</a></li>
         </ul>
     </nav>

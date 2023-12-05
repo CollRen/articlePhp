@@ -32,3 +32,16 @@ function salt($sale)
     $sale = $sale . $salt;
     return $sale;
 }
+
+/*
+require_once(SESSION_DIR);
+if (!sessionCheck()) {
+    echo "disconnected";
+    $layoutUrl = '/layouts/layout.php';
+} else {
+    echo "Connected";
+    $layoutUrl = '/layouts/layoutin.php';
+}
+
+$layout_file = VIEW_DIR . $layoutUrl;
+*/

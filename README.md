@@ -46,4 +46,4 @@ Lister ce que je veux que le site fasse
 -   Publier l'article au lieu de sauvegarder l'article
 -   Enlever l'id de l'auteur dans la liste des articles disponibles
 -   Change le h1 pour Vos articles
--   Si l'auteur n'a pas d'article: 'Vous n'avez pas encore d'article, créez-en là là'
+-   Si l'auteur n'a pas d'article: 'Vous n'avez pas encore d'article'
