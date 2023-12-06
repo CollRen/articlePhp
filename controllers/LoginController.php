@@ -30,21 +30,18 @@ function auth()
 
     $mot_de_passe = password_hash($saltPassword, PASSWORD_BCRYPT, ['cost' => 10]);
     if (password_verify($saltPassword, $info_user[0]['mot_de_passe'])) {
-
         regenereIdSession($info_user);
-
         require_once(MODEL_DIR . "/article.php");
         $article = articleSelect();
         render('/base/index.php', $article);
-    } else {
-        header('location:login.php?msg=2');
+        exit;
     }
+    header('location:login.php?msg=2');
 }
 
 function logout()
 {
     session_start();
     session_destroy();
-
     header('location:index.php');
 }

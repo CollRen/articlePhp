@@ -32,18 +32,14 @@ function articleInsert($request)
 {
 
     require(CONNEX_DIR);
-
     foreach ($request as $key => $value) {
         $$key = mysqli_real_escape_string($connex, $value);
     }
-
     $sql = "INSERT INTO article (titre, contenu, date, auteur) VALUES ('$titre', '$contenu', '$date', $auteur)";
-
     if (mysqli_query($connex, $sql)) {
         return mysqli_insert_id($connex);
-    } else {
-        return "Error: " . $sql . "<br>" . mysqli_error($connex);
     }
+    return "Error: " . $sql . "<br>" . mysqli_error($connex);
 }
 
 /**
@@ -58,7 +54,6 @@ function articleSelectId($request)
     $sql = "SELECT * FROM article WHERE id_article = '$id_article'";
     $result = mysqli_query($connex, $sql);
     $result = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    //echo $result;
     return $result;
 }
 
@@ -72,24 +67,16 @@ function articleEdit($request)
 {
     require_once(SESSION_DIR);
     sessionCheck();
-
     require(CONNEX_DIR);
-
-
     foreach ($request as $key => $value) {
         $$key = mysqli_real_escape_string($connex, $value);
     }
-
-
     $sql = "UPDATE article SET titre = '$titre', contenu = '$contenu', date = '$date' WHERE id_article = '$id_article'";
-
-
     if (mysqli_query($connex, $sql)) {
 
         return true;
-    } else {
-        return "Error: " . $sql . "<br>" . mysqli_error($connex);
     }
+    return "Error: " . $sql . "<br>" . mysqli_error($connex);
 }
 
 /**

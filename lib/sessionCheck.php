@@ -8,6 +8,7 @@ function sessionCheck()
     return true;
 }
 
+/*
 function regenereIdSession($info_user)
 {
     session_regenerate_id();
@@ -16,3 +17,4 @@ function regenereIdSession($info_user)
     $_SESSION['auteur'] = $info_user[0]['id_utilisateur'];
     $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
 }
+*/

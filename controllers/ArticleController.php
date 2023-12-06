@@ -7,10 +7,15 @@
  */
 function index()
 {
-   require_once(MODEL_DIR . "/article.php");
-   $data = articleSelectByAuthor();
-
-   render('/article/index.php', $data);
+   require_once(SESSION_DIR);
+   if (sessionCheck()) {
+      require_once(MODEL_DIR . "/article.php");
+      $data = articleSelectByAuthor();
+      render('/article/index.php', $data);
+      exit;
+   }
+   require_once(MODEL_DIR . "/login.php");
+   render('/login/index.php');
 }
 
 function create()
@@ -20,10 +25,10 @@ function create()
       require_once(MODEL_DIR . "/article.php");
       $data = articleSelect();
       render('/article/create.php', $data);
-   } else {
-      require_once(MODEL_DIR . "/login.php");
-      render('/login/index.php');
+      exit;
    }
+   require_once(MODEL_DIR . "/login.php");
+   render('/login/index.php');
 }
 
 function store($request)
@@ -60,7 +65,6 @@ function viewUpdate($request)
 }
 function update($request)
 {
-
    require_once(MODEL_DIR . "/article.php");
    $data = articleEdit($request);
    render('/article/ajout.php', $request);
@@ -74,10 +78,10 @@ function preUpdate($request)
    if (sessionCheck()) {
       require_once(MODEL_DIR . "/article.php");
       render('/article/edit.php', $request);
-   } else {
-      require_once(MODEL_DIR . "/login.php");
-      render('/login/index.php', $request);
+      exit;
    }
+   require_once(MODEL_DIR . "/login.php");
+   render('/login/index.php', $request);
 }
 function deleteArticle($request)
 {
@@ -86,10 +90,10 @@ function deleteArticle($request)
       require_once(MODEL_DIR . "/article.php");
       $request = articleDelete($request);
       render('/article/delete.php', $request);
-   } else {
-      require_once(MODEL_DIR . "/login.php");
-      render('/login/index.php', $request);
+      exit;
    }
+   require_once(MODEL_DIR . "/login.php");
+   render('/login/index.php', $request);
 }
 
 /*
