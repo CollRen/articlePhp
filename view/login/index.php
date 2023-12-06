@@ -3,9 +3,7 @@
 $msg = null;
 if (isset($_GET['msg'])) {
     if ($_GET['msg'] == 1) {
-        $msg = "Verifier le nom de l'utilisateur...";
-    } elseif ($_GET['msg'] == 2) {
-        $msg = "Verifier le mot de passe...";
+        $msg = "Vérifier le mot de passe ou le nom d'utilisateur";
     } else {
         $msg = "Ce message n'apparaitra pas";
     }

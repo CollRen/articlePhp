@@ -23,8 +23,6 @@ function auth()
     require(MODEL_DIR . "/login.php");
     $mot_de_passe = $_POST["mot_de_passe"];
     $info_user = utilisateurPswCheck($_POST);
-    // $salt = "H@%h14";
-    // $saltPassword = $mot_de_passe . $salt;
     require_once('lib/core.php');
     $saltPassword = salt($mot_de_passe);
 
@@ -36,7 +34,7 @@ function auth()
         render('/base/index.php', $article);
         exit;
     }
-    header('location:login.php?msg=2');
+    header('location:index.php?controller=login&msg=1');
 }
 
 function logout()
