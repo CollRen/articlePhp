@@ -1,5 +1,6 @@
 # Énoncé
 
+Attention cette version sert seulement à tester les clés SSH
 La page d'accueil répertorie tous les articles doit être accessible à tous, même non connecté
 
 -   nom de l'auteur
